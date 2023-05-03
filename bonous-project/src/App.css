@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 } */
+
+.search-btn{
+  color: #fff;
+  border-radius: 7px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.search-input{
+  height: 4vh;
+  border-radius: 5px;
+}
