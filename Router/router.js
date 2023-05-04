@@ -8,6 +8,7 @@ const schema = joi.object({
   name: joi.string().required().optional(),
   email: joi.string().email().required(),
   password: joi.string().min(8).required(),
+  subscription: joi.string(),
 });
 router.post("/login", async (req, res, next) => {
   try {
@@ -25,7 +26,7 @@ router.post("/login", async (req, res, next) => {
       res.status(400);
       throw new Error("Sorry! You don't have account.");
     }
-    res.send("login successfully...");
+    res.send(value.subscription);
   } catch (error) {
     next(error);
   }
