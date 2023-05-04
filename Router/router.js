@@ -5,17 +5,22 @@ const prisma = new PrismaClient();
 const joi = require("joi");
 
 const schema = joi.object({
-  name: joi.string().required(),
+  name: joi.string().required().optional(),
   email: joi.string().email().required(),
   password: joi.string().min(8).required(),
 });
 router.post("/login", async (req, res, next) => {
   try {
+    const { error, value } = schema.validate(req.body);
     const user = await prisma.gym_user.findUnique({
       where: {
-        email: req.body.email,
+        email: value.email,
       },
     });
+    if (error) {
+      res.status(400);
+      throw new Error(error.details[0].message);
+    }
     if (!user) {
       res.status(400);
       throw new Error("Sorry! You don't have account.");
@@ -37,6 +42,10 @@ router.post("/register", async (req, res, next) => {
     if (user) {
       res.status(400);
       throw new Error("This email is already registered!");
+    }
+    if (error) {
+      res.status(400);
+      throw new Error(error.details[0].message);
     }
     await prisma.gym_user.create({
       data: value,
