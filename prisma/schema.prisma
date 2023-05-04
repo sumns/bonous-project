@@ -11,9 +11,9 @@ datasource db {
 }
 
 model gym_user {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
   name         String
-  email        String @unique
+  email        String  @unique
   password     String
-  subscription String @default("JOIN US")
+  subscription String? @default("JOIN US")
 }
