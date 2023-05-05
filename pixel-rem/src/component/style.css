@@ -1,0 +1,29 @@
+.innerBox{
+    min-width: 480px;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgb(119, 116, 116);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.innerBox label {
+    font-size: 2rem;
+    font-weight: 700;
+    color :#fff
+}
+
+.innerBox input {
+    height: 25px;
+    width: 100%;
+    font-size: 1rem;
+}
+.innerBox p{
+    color: #fff;
+    font-size: larger;
+    letter-spacing: 2px;
+}
