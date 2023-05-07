@@ -3,12 +3,22 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const joi = require("joi");
-
+const fs = require("fs");
 const schema = joi.object({
   name: joi.string().required().optional(),
   email: joi.string().email().required(),
-  password: joi.string().min(8).required()
+  password: joi.string().min(8).required(),
 });
+
+router.get("/", async (req, res, next) => {
+  try {
+    console.log("hello")
+    res.end()
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post("/login", async (req, res, next) => {
   try {
     const { error, value } = schema.validate(req.body);
