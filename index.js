@@ -12,6 +12,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "OPTIONS"],
     Credential: true,
   })
+
 );
 app.use("/api", router);
 app.use(errorHandler);
@@ -31,6 +32,7 @@ io.on("connection", (socket) => {
   socket.on("send message", (body) => {
     io.emit("message", body);
   });
+  
   socket.on("disconnect", (data) => {
     console.log(data);
   });
