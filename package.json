@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@prisma/client": "^4.13.0",
     "cors": "^2.8.5",
-    "joi": "^17.9.2"
+    "joi": "^17.9.2",
+    "socket.io": "^4.6.1"
   }
 }
