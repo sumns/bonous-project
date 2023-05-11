@@ -4,6 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
+.counter{
+  border: 2px solid #888;
+  border-radius: 8px;
+  height: 250px;
+  width: 400px; 
+}
+
+.timer{
+  border: 2px solid #888;
+  border-radius: 8px;
+  height: 250px;
+  width: 400px; 
+}
 
 .logo {
   height: 6em;
