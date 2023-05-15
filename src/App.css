@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+.app{
+  color: #fff;
+  height: 350px;
+  width: 450px;
+  background-color: #005;
+  border-radius: 18px;
+
+}
+
+li{
+  list-style-type: upper-alpha;
+ 
+
+}
+
+li p{
+  font-size: large;
+  cursor: pointer;
+
+
+}
+
+li p:hover{
+  
+  color: green;
+}
+
+p {
+  font-size: 20px ;
+}

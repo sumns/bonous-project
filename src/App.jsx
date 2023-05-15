@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from 'react';
+import Question from './Question'
+import Result from './Result'
+
+const App = ({ questionsData }) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const handleAnswerClick = (selectedAnswer) => {
+
+    // Check if the selected answer is correct
+    if (selectedAnswer === questionsData[currentQuestionIndex].correctAnswer) {
+      setScore(score + 1);
+    }
+
+    // Move to the next question
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  };
+
+  // Get the current question from the questionsData array
+  const currentQuestion = questionsData[currentQuestionIndex];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className='app'>
+      
+      {currentQuestion ? (
+        <Question
+          question={currentQuestion.question}
+          answers={currentQuestion.answers}
+          onAnswerClick={handleAnswerClick}
+        />
+      ) : (
+        <Result score={score} totalQuestions={questionsData.length} />
+      )}
+    </div>
+  );
+};
 
-export default App
+export default App;
