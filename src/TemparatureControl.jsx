@@ -22,9 +22,9 @@ const TemperatureControlApp = () => {
 
   return (
     <div className="app" style={{ backgroundColor }}>
-      <h1>Temperature Control App</h1>
+      <h1>Temperature Control App </h1>
       
-      <div className="temperature">
+      <div className="temperature_cnt">
         <button onClick={handleDecrement}> ➖ </button>
         <span>{temperature}°C</span>
         <button onClick={handleIncrement}> ➕ </button>
