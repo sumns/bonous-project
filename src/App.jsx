@@ -1,15 +1,10 @@
-
+import React from 'react'
 import './App.css'
-import TemperatureControlApp from './TemparatureControl'
-
+import Calculator from './Component/calculator'
 function App() {
-
-
   return (
     <>
-
-
-      
+    <Calculator/>
     </>
   )
 }
