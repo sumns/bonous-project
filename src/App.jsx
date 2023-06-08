@@ -1,15 +1,16 @@
-
+import React from 'react';
 import './App.css'
-import TemperatureControlApp from './TemparatureControl'
+import UserManagement from './UserManagement';
+import { UserProvider } from './UserContext';
 
 function App() {
 
 
   return (
     <>
-
-
-      
+    <UserProvider>
+      <UserManagement />
+    </UserProvider>
     </>
   )
 }
